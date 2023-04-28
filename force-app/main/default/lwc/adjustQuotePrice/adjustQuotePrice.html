@@ -1,7 +1,18 @@
 <!-- Adjust Quote Price -->
 <template>
-  <lightning-input-field
-    field-name={adjustedAmountLabel}
-    value={adjustedAmount}
-  ></lightning-input-field>
+    <lightning-record-edit-form layout-type="Full" object-api-name="Quote__c" record-id={recordId} onsubmit={handleSave}>
+
+    <lightning-input-field
+      field-name="TotalQuotedAmount__c"
+      value={adjustedAmount}
+      onchange={onChangeAmount}
+      ></lightning-input-field>
+    </lightning-record-edit-form>
+    
+    <lightning-button
+      variant="brand"
+      type="button"
+      label="Save"
+      onclick={handleAdjustQuoteSave}
+    ></lightning-button>
 </template>
